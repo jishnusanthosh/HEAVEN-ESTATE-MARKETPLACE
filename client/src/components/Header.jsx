@@ -1,6 +1,6 @@
-import { FaSearch } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
   const currentUser = useSelector((state) => state.user); // Fixing the useSelector usage
@@ -28,17 +28,20 @@ function Header() {
           <li className="hidden sm:inline text-slate-700 hover:underline">
             <Link to="/about">About</Link>
           </li>
-          <Link to='/profile'>
-            {currentUser ? (
-              <img
-                className='rounded-full h-7 w-7 object-cover'
-                src={currentUser.avatar}
-                alt='profile'
-              />
-            ) : (
-              <li className=' text-slate-700 hover:underline'> Sign in</li>
-            )}
-          </Link>
+
+          <li>
+            <Link to="/profile">
+              {currentUser ? (
+                <img
+                  className="rounded-full h-7 w-7 object-cover"
+                  src={currentUser.avatar}
+                  alt="profile"
+                />
+              ) : (
+                <span className="text-slate-700 hover:underline"> Sign in</span>
+              )}
+            </Link>
+          </li>
         </ul>
       </div>
     </header>
