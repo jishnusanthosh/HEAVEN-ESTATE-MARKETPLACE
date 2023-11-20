@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Header() {
-  const currentUser = useSelector((state) => state.user); // Fixing the useSelector usage
+  const currentUser = useSelector((state) => state.user.currentUser); // Assuming user state is stored under 'currentUser'
+
   return (
     <header className="bg-slate-200 shadow-md">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
@@ -34,7 +35,7 @@ function Header() {
               {currentUser ? (
                 <img
                   className="rounded-full h-7 w-7 object-cover"
-                  src={currentUser.avatar}
+                  src={currentUser.avatar || "default-avatar-url"} // Provide the URL for the default avatar
                   alt="profile"
                 />
               ) : (
