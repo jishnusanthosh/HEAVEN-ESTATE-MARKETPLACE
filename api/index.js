@@ -23,7 +23,9 @@ app.use(express.json())
 app.use(cookieParser())
 
 // Routes
-app.use('/api/users', userRouter)
+app.use('/api/user', userRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/listing', listingRouter);
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000')
